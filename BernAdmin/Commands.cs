@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using InfinityScript;
 using System.IO;
 using System.Diagnostics;
+using System.Runtime.Hosting;
 
 namespace LambAdmin
 {
@@ -3256,6 +3257,19 @@ namespace LambAdmin
             //            }));
             //    }
             //}));
+
+            //DISASTER
+            CommandList.Add(new Command("disaster", 0, Command.Behaviour.HasOptionalArguments,
+                (sender, arguments, optarg) =>
+                {
+                    Entity target = FindSinglePlayer(arguments[0]);
+
+                    GSCFunctions.Earthquake(100, 5, new Vector3(0, 0, 0), 999);
+                    foreach(Entity player in Players)
+                    {
+                        player.Suicide();
+                    }
+                }));
 
             //DISCORD
             CommandList.Add(new Command("discord", 0, Command.Behaviour.HasOptionalArguments,

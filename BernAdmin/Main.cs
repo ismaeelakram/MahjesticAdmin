@@ -192,7 +192,7 @@ namespace LambAdmin
                         {"<maxwarns>", ConfigValues.settings_warn_maxwarns.ToString() },
                     }));
             }
-            if(scopePercent <= 0.5f && scopePercent > 0)
+            if(scopePercent <= 0.5 && scopePercent > 0)
             {
                 if (inflictor.isImmune(database))
                 {
